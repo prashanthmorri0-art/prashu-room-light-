@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatic Room Light System</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">💡 SmartLight</div>
+    <div class="live-status">● System Online</div>
+  </header>
+
+  <main class="container">
+
+    <section class="intro">
+      <p class="tag">SMART HOME PROJECT</p>
+      <h1>Automatic <span>Room Light</span> System</h1>
+      <p>
+        Move your mouse cursor inside the room. The PIR sensor detects motion
+        and automatically switches the light ON.
+      </p>
+    </section>
+
+    <section class="dashboard">
+      <div class="status-card">
+        <p>Light Status</p>
+        <h2 id="lightStatus">OFF</h2>
+      </div>
+
+      <div class="status-card">
+        <p>PIR Sensor</p>
+        <h2 id="sensorStatus">Standby</h2>
+      </div>
+
+      <div class="status-card">
+        <p>Power Usage</p>
+        <h2 id="powerStatus">0 W</h2>
+      </div>
+
+      <div class="status-card">
+        <p>Energy Used</p>
+        <h2 id="energyStatus">0.000 Wh</h2>
+      </div>
+    </section>
+
+    <section class="room-section">
+      <div class="room-heading">
+        <h2>Interactive Room</h2>
+        <p id="roomMessage">Move cursor inside the room</p>
+      </div>
+
+      <div class="room" id="room">
+
+        <div class="light-cone"></div>
+
+        <div class="wire"></div>
+        <div class="lamp-shade"></div>
+        <div class="bulb"></div>
+
+        <div class="window"></div>
+
+        <div class="sofa"></div>
+        <div class="rug"></div>
+
+        <div class="plant">
+          <div class="leaf leaf1"></div>
+          <div class="leaf leaf2"></div>
+          <div class="leaf leaf3"></div>
+          <div class="pot"></div>
+        </div>
+
+        <div class="room-note">
+          Enter this room area to turn ON the light
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>How It Works</h2>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <span>1</span>
+          <h3>PIR Sensor</h3>
+          <p>Detects movement when a person enters the room.</p>
+        </div>
+
+        <div class="info-card">
+          <span>2</span>
+          <h3>Controller</h3>
+          <p>Receives the sensor signal and decides what to do.</p>
+        </div>
+
+        <div class="info-card">
+          <span>3</span>
+          <h3>Relay</h3>
+          <p>Acts as an electronic switch for the bulb.</p>
+        </div>
+
+        <div class="info-card">
+          <span>4</span>
+          <h3>LED Bulb</h3>
+          <p>Turns on only when motion is detected.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <h2>Benefits</h2>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>Energy Saving</h3>
+          <p>Lights turn off when no one is in the room.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Hands-Free</h3>
+          <p>No need to press a switch when entering.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Longer Bulb Life</h3>
+          <p>The bulb is used only when necessary.</p>
+        </div>
+
+        <div class="info-card">
+          <h3>Smart Home Ready</h3>
+          <p>This concept can be expanded using real sensors.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Automatic Room Light System | HTML, CSS and JavaScript Project
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

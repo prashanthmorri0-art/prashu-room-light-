@@ -1,0 +1,387 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  color: white;
+  background:
+    radial-gradient(circle at top left, #244d7f, transparent 35rem),
+    linear-gradient(135deg, #06111f, #102a43);
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.live-status {
+  color: #9de8bc;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.intro {
+  text-align: center;
+  max-width: 750px;
+  margin: 20px auto 35px;
+}
+
+.tag {
+  color: #72d8ff;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.intro h1 {
+  margin: 12px 0;
+  font-size: clamp(38px, 6vw, 65px);
+}
+
+.intro h1 span {
+  color: #ffdc68;
+}
+
+.intro p {
+  color: #b9c9dc;
+  line-height: 1.7;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.status-card,
+.info-card {
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.status-card p {
+  color: #a9bad0;
+  font-size: 13px;
+}
+
+.status-card h2 {
+  margin-top: 10px;
+  color: #ffdc68;
+}
+
+.room-section,
+.info-section {
+  margin-top: 25px;
+  padding: 25px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  background: rgba(255,255,255,0.07);
+}
+
+.room-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.room-heading p {
+  color: #a9bad0;
+  font-size: 14px;
+}
+
+.room {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 15px;
+  cursor: crosshair;
+  background: linear-gradient(160deg, #172a46 0%, #101b2e 58%, #09111e 58%);
+  transition: 0.5s;
+}
+
+.room.light-on {
+  background: linear-gradient(160deg, #957d55 0%, #716048 58%, #493e31 58%);
+  box-shadow: inset 0 0 100px rgba(255,220,100,0.4);
+}
+
+.light-cone {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  width: 420px;
+  height: 320px;
+  transform: translateX(-50%);
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+  background: radial-gradient(ellipse at top, rgba(255,245,185,0.55), rgba(255,220,100,0.08), transparent 70%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.room.light-on .light-cone {
+  opacity: 1;
+}
+
+.wire {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 65px;
+  background: #65758d;
+}
+
+.lamp-shade {
+  position: absolute;
+  top: 58px;
+  left: calc(50% - 52px);
+  width: 104px;
+  height: 40px;
+  border-radius: 50% 50% 15px 15px;
+  background: #506177;
+}
+
+.bulb {
+  position: absolute;
+  top: 89px;
+  left: calc(50% - 19px);
+  width: 38px;
+  height: 38px;
+  border: 4px solid #76879d;
+  border-radius: 50%;
+  background: #b9c8d8;
+  transition: 0.4s;
+}
+
+.room.light-on .bulb {
+  border-color: #fff1ab;
+  background: #fffbd0;
+  box-shadow: 0 0 22px 10px rgba(255,220,95,0.95),
+              0 0 80px 30px rgba(255,220,95,0.35);
+}
+
+.window {
+  position: absolute;
+  top: 75px;
+  right: 45px;
+  width: 120px;
+  height: 145px;
+  border: 8px solid #34445f;
+  background: linear-gradient(145deg, #20516d, #091d35);
+}
+
+.window::before,
+.window::after {
+  position: absolute;
+  background: #34445f;
+  content: "";
+}
+
+.window::before {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 6px;
+}
+
+.window::after {
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 6px;
+}
+
+.sofa {
+  position: absolute;
+  bottom: 45px;
+  left: 40px;
+  width: 190px;
+  height: 90px;
+  border-radius: 18px 18px 8px 8px;
+  background: #40526e;
+}
+
+.sofa::before {
+  position: absolute;
+  top: 18px;
+  left: 14px;
+  right: 14px;
+  height: 30px;
+  border-radius: 10px;
+  background: #50647e;
+  content: "";
+}
+
+.rug {
+  position: absolute;
+  right: 30%;
+  bottom: 25px;
+  width: 170px;
+  height: 58px;
+  border-radius: 50%;
+  background: #273952;
+}
+
+.room.light-on .rug {
+  background: #775f49;
+}
+
+.plant {
+  position: absolute;
+  right: 45px;
+  bottom: 35px;
+  width: 70px;
+  height: 130px;
+}
+
+.pot {
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  width: 48px;
+  height: 48px;
+  border-radius: 5px 5px 14px 14px;
+  background: #aa6548;
+}
+
+.leaf {
+  position: absolute;
+  bottom: 42px;
+  width: 28px;
+  height: 55px;
+  border-radius: 100% 0 100% 0;
+  background: #46a875;
+  transform-origin: bottom;
+}
+
+.leaf1 {
+  left: 23px;
+}
+
+.leaf2 {
+  left: 3px;
+  transform: rotate(-42deg);
+}
+
+.leaf3 {
+  right: 3px;
+  transform: rotate(45deg);
+}
+
+.room-note {
+  position: absolute;
+  bottom: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  background: rgba(0,0,0,0.45);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.info-section h2 {
+  margin-bottom: 20px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.info-card span {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: #11213a;
+  background: #ffdc68;
+  font-weight: bold;
+}
+
+.info-card h3 {
+  margin: 12px 0 8px;
+}
+
+.info-card p {
+  color: #b9c9dc;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+footer {
+  padding: 35px 20px 20px;
+  color: #8192ac;
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .dashboard,
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  header {
+    padding: 18px;
+  }
+
+  .dashboard,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .room {
+    height: 350px;
+  }
+
+  .window {
+    right: 15px;
+    transform: scale(0.75);
+    transform-origin: top right;
+  }
+
+  .sofa {
+    left: 10px;
+    transform: scale(0.72);
+    transform-origin: bottom left;
+  }
+
+  .plant {
+    right: 10px;
+    transform: scale(0.8);
+    transform-origin: bottom right;
+  }
+
+  .room-note {
+    font-size: 10px;
+  }
+}
